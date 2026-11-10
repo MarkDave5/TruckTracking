@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f8f7">
+  <title>Welcome back — RoadWatch</title>
+  <link rel="stylesheet" href="/css/auth.css?v=20261108b">
+  <script src="/js/auth.js" defer></script>
+</head>
+<body data-mode="login">
+  <header class="auth-topbar"><a class="auth-brand" href="/login.html" aria-label="RoadWatch sign in"><span class="brand-mark"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="m6 25 7-18h6l7 18M9 18h14M16 9v3m0 6v4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>road<strong>watch</strong><small>FLEET & ROAD INTELLIGENCE</small></span></a><span class="topbar-caption">TRUCK & ROAD MONITORING</span></header>
+  <main class="auth-layout">
+    <section class="auth-card" aria-labelledby="auth-title">
+      <div class="card-heading">
+        <span class="auth-emblem" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 4 6v6c0 4 4.5 7.2 8 9 3.5-1.8 8-5 8-9V6l-8-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m8.5 12 2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h1 id="auth-title">Welcome back</h1>
+        <p class="auth-description">Sign in to your truck monitoring workspace.</p>
+      </div>
+      <button class="google-auth" id="google-auth" type="button" disabled><svg aria-hidden="true" viewBox="0 0 24 24"><path fill="#4285F4" d="M21.6 12.2c0-.7-.1-1.4-.2-2.2H12v4.2h5.4a4.7 4.7 0 0 1-2 3v2.5h3.3c1.9-1.8 2.9-4.3 2.9-7.5Z"/><path fill="#34A853" d="M12 22c2.7 0 5-1 6.7-2.3l-3.3-2.5c-.9.6-2 1-3.4 1-2.6 0-4.9-1.8-5.7-4.2H2.9v2.6A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.3 14a6 6 0 0 1 0-4V7.4H2.9a10 10 0 0 0 0 9.2L6.3 14Z"/><path fill="#EA4335" d="M12 5.8c1.5 0 2.8.5 3.8 1.5l2.9-2.9A9.7 9.7 0 0 0 12 2a10 10 0 0 0-9.1 5.4L6.3 10c.8-2.4 3.1-4.2 5.7-4.2Z"/></svg>Continue with Google</button><div class="auth-divider"><span>or use your email</span></div><form id="auth-form">
+
+<label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required maxlength="254">
+<label for="password">Password</label><div class="password-field"><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password"  maxlength="128" required><button type="button" id="toggle-password" aria-label="Show password">Show</button></div>
+
+<a class="forgot-link" href="/forgot-password.html">Forgot password?</a><p id="auth-status" class="auth-status" role="status" hidden></p><p id="auth-error" class="auth-error" role="alert" hidden></p><button id="submit-auth" class="auth-submit" type="submit" disabled>Sign in <span>→</span></button>
+</form><section id="verification-panel" class="verification-panel" hidden><strong>Check your email</strong><p>Follow the verification link sent by Firebase. Your account cannot access the dashboard until verification is complete.</p><button type="button" id="check-verification">I verified my email →</button><button type="button" id="resend-verification">Resend verification email</button></section><p class="switch-auth">New to RoadWatch? <a href="/register.html">Create an account</a></p>
+    </section>
+    <p class="demo-caption"><span></span> Truck and road monitoring</p>
+  </main>
+  <footer class="auth-footer"><span>© 2026 RoadWatch</span><span>Fleet visibility. Road awareness.</span></footer>
+</body>
+</html>
+

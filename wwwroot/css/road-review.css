@@ -1,0 +1,21 @@
+.road-review-add,.road-review-list-card { margin:0 0 20px; }
+.road-review-add > summary { cursor:pointer; list-style:none; padding:18px 22px; color:#294957; font-weight:700; }
+.road-review-add > summary::-webkit-details-marker { display:none; }
+.road-review-add > summary::after { content:'+'; float:right; color:#277f6f; font-size:20px; }
+.road-review-add[open] > summary::after { content:'−'; }
+.road-review-form { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; padding:4px 22px 22px; }
+.road-review-form label,.road-review-outcome-form label { display:flex; flex-direction:column; gap:6px; color:#4d6671; font-size:13px; font-weight:600; }
+.road-review-form label span { color:#8ca0a7; font-size:12px; font-weight:400; }
+.road-review-form input,.road-review-form select,.road-review-outcome-form input,.road-review-outcome-form select,.road-review-list-card select { min-width:0; width:100%; min-height:40px; padding:8px 10px; border:1px solid #dce5e8; border-radius:8px; background:white; color:#304b58; font:400 13px 'DM Sans',sans-serif; }
+.road-review-form input[type=file] { padding:8px; }
+.road-review-explain { color:#7b9199; font-size:12px; line-height:1.6; }
+.road-review-form > .road-review-explain,.road-review-actions { grid-column:1/-1; margin:0; }
+.road-review-actions { display:flex; align-items:center; gap:12px; }
+.road-review-actions span,.road-review-outcome-form .dialog-actions span { color:#68828b; font-size:12px; }
+.road-review-list-card .card-head > label { font-size:12px; color:#65808a; }
+.road-review-video { display:block; width:100%; max-height:45vh; margin-bottom:18px; border-radius:8px; background:#142c34; }
+.road-review-no-video { padding:20px; background:#f4f7f7; color:#718992; border-radius:8px; text-align:center; }
+.road-review-outcome-form { display:grid; gap:14px; margin-top:18px; }
+@media(max-width:800px) { .road-review-form { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:520px) { .road-review-form { grid-template-columns:1fr; } .road-review-list-card .card-head { flex-wrap:wrap; gap:12px; } }
+.road-review-form .road-review-local-choice { justify-content:center; }.road-review-form .road-review-local-choice span { display:flex; align-items:center; gap:8px; color:#4d6671; font-size:12px; font-weight:600; }.road-review-form .road-review-local-choice input { width:auto; min-height:0; }.road-review-form .road-review-local-choice small { color:#8499a0; font-size:12px; }

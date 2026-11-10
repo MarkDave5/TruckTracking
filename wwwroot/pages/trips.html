@@ -1,0 +1,55 @@
+<section id="trips" class="page">
+  <div class="page-heading">
+<div>
+<div class="eyebrow"><span></span> TRIP MANAGEMENT</div>
+<h1>Trips & fuel</h1>
+<p>Review journey details and the assumptions behind each fuel estimate.</p>
+</div><span class="page-chip">◷ &nbsp; Sample records</span>
+</div>
+  <div id="trip-stats" class="trip-stats">
+</div>
+  <article class="card table-card trip-card">
+<div class="card-head table-heading">
+<div>
+<div class="section-kicker">TRIP RECORDS</div>
+<h2>Trip history <span class="trip-sample-badge">SAMPLE</span></h2>
+<p>These journeys are examples, not trips recorded from your trucks.</p>
+</div>
+<div class="trip-filter-row">
+<label class="sr-only" for="trip-search">Search trips</label>
+<input id="trip-search" type="search" placeholder="Search vehicle, driver or route">
+<label class="sr-only" for="trip-vehicle-filter">Filter by vehicle</label><select id="trip-vehicle-filter"><option value="all">All vehicles</option></select>
+<label class="sr-only" for="trip-driver-filter">Filter by driver</label><select id="trip-driver-filter"><option value="all">All drivers</option></select>
+<label class="sr-only" for="trip-date-filter">Filter by trip date</label><input id="trip-date-filter" type="date" aria-label="Filter by trip date">
+<label class="sr-only" for="trip-status-filter">Trip status unavailable for sample records</label><select id="trip-status-filter" disabled title="Status is not recorded for these sample trips"><option>Status unavailable</option></select>
+<button type="button" id="trip-clear-filters" class="trip-clear-filters">Clear</button>
+</div>
+</div>
+<div id="trip-table">
+</div>
+</article>
+  <div class="trip-footnote"><span>ⓘ</span>
+<p><strong>About fuel estimates</strong><br>Estimated liters = distance ÷ configured km/L. Costs use the saved price per liter. Use a trip-average efficiency that reflects typical traffic; do not add a separate idle estimate. These values are not direct fuel measurements.</p>
+</div>
+</section>
+<dialog id="trip-dialog">
+<div class="dialog-top">
+<div>
+<div class="section-kicker">SAMPLE TRIP DETAILS</div>
+<h2 id="trip-title">Journey</h2>
+</div>
+<button class="icon-button" id="close-trip" aria-label="Close trip details">✕</button>
+</div>
+<div id="trip-detail"></div>
+<form id="trip-fuel-form" class="trip-fuel-form">
+  <div><div class="section-kicker">TRIP FUEL SETTINGS</div><h3>Driver and estimate</h3><p>Save the assumptions used for this trip.</p></div>
+  <label for="trip-driver">Driver name<input id="trip-driver" name="driver" type="text" maxlength="80" required autocomplete="off" placeholder="Enter driver name"></label>
+  <div class="fuel-input-row"><label for="trip-efficiency">Fuel efficiency <span>km/L</span><input id="trip-efficiency" name="efficiency" type="number" min="0.1" max="100" step="0.01" required inputmode="decimal"></label><label for="trip-price">Fuel price <span>₱/L</span><input id="trip-price" name="price" type="number" min="0" max="10000" step="0.01" required inputmode="decimal"></label></div>
+  <p id="fuel-preview" class="fuel-preview" aria-live="polite"></p>
+  <p id="fuel-form-message" class="fuel-form-message" role="status" aria-live="polite"></p>
+  <button id="save-trip-fuel" class="button button-primary" type="submit">Save trip settings</button>
+</form>
+<div class="dialog-actions">
+<button class="button button-outline" id="dismiss-trip">Close</button>
+</div>
+</dialog>

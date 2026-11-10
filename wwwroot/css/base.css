@@ -1,0 +1,40 @@
+:root {
+  --ink:#192b30;
+  --muted:#7b8b8b;
+  --line:#e8eeeb;
+  --green:#165b49;
+  --mint:#d8f1e3;
+  --orange:#e48b43;
+  --cream:#f7f8f4
+}
+
+* {
+  box-sizing:border-box
+}
+
+/* Keep page width stable when expandable sections add vertical scrolling. */
+html {
+  overflow-y:scroll;
+  scrollbar-gutter:stable
+}
+
+body {
+  margin:0;
+  background:#f5f7f3;
+  color:var(--ink);
+  font-family:'DM Sans',sans-serif;
+  font-size:14px
+}
+
+button,input,select {
+  font:inherit
+}
+
+a {
+  color:inherit;
+  text-decoration:none
+}
+
+button,a,select,input {
+  outline-color:#4a9d7d
+}

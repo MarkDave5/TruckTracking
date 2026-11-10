@@ -1,0 +1,20 @@
+#trips .trip-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:0 0 18px; }
+#trips .trip-stats > div { min-width:0; position:relative; padding:15px 18px; border:1px solid #e1e8ee; border-radius:10px; background:#fff; }
+#trips .trip-stats p { margin:0 0 7px; font-size:12px; letter-spacing:.9px; color:#8198a6; }
+#trips .trip-stats strong { display:block; color:#2a485a; font:750 23px/1.2 Manrope,sans-serif; }
+#trips .trip-stats em { font:600 12px 'DM Sans',sans-serif; color:#8199a3; }
+#trips .trip-stats small { display:block; margin-top:6px; color:#91a4aa; font-size:12px; }
+#trips .trip-stats .stat-glyph { right:16px; top:15px; }
+.trip-card { overflow:hidden; }
+.trip-card .table-heading { display:block; padding:22px 24px 16px; }
+.trip-sample-badge { display:inline-block; vertical-align:middle; margin-left:6px; padding:4px 7px; border-radius:5px; background:#edf4f5; color:#6c8793; font-size:11px; font-weight:700; letter-spacing:.5px; }
+.trip-filter-row { display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-top:18px; }
+.trip-filter-row input,.trip-filter-row select { min-width:0; min-height:38px; padding:8px 10px; border:1px solid #dce6e9; border-radius:7px; background:#fff; color:#536f80; font:500 12px 'DM Sans',sans-serif; }
+.trip-filter-row input[type=search] { flex:1 1 210px; }.trip-filter-row input[type=date] { width:150px; }.trip-filter-row select:disabled { background:#f5f7f8; color:#a1afb6; }
+.trip-clear-filters { padding:7px; border:0; background:none; color:#277f70; font:700 12px 'DM Sans',sans-serif; cursor:pointer; }
+.trip-status-unknown { display:inline-block; border-radius:5px; padding:5px 8px; background:#f0f4f6; color:#748b96; font-size:12px; font-weight:600; }
+#trip-dialog { max-width:600px; }
+.trip-detail-source { margin-top:18px; padding:9px 12px; border-radius:7px; background:#edf4f5; color:#64818a; font-size:12px; font-weight:600; }
+#trip-dialog .detail-grid { gap:16px; padding:16px; border:1px solid #e8eef0; border-radius:9px; }
+#trip-dialog .detail-grid span { color:#8ea2aa; }
+@media(max-width:700px) { #trips .trip-stats { grid-template-columns:1fr; gap:9px; } #trips .trip-stats > div { padding:12px 15px; }.trip-card .table-heading { padding:19px 17px 15px; }.trip-filter-row input[type=search] { flex-basis:100%; }.trip-filter-row select,.trip-filter-row input[type=date] { flex:1 1 140px; } }

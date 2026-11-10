@@ -1,0 +1,189 @@
+/* Owner overview: compact summary, actionable queue and readable fleet records. */
+#overview { --overview-ink:#243e4a; --overview-muted:#72848d; }
+.owner-heading { display:flex; justify-content:space-between; align-items:center; gap:24px; margin:28px 0 24px; }
+.owner-eyebrow { display:block; font-size:12px; letter-spacing:1.35px; font-weight:700; color:#84979c; margin-bottom:9px; }
+.owner-heading h1 { font-size:30px; letter-spacing:-1px; color:var(--overview-ink); }
+.owner-heading p { color:var(--overview-muted); margin:8px 0 0; font-size:14px; line-height:1.5; }
+.owner-actions { display:flex; align-items:center; gap:10px; }
+.owner-actions select { font:500 13px 'DM Sans',sans-serif; color:#536b74; border:1px solid #dce5e8; border-radius:8px; background:white; min-width:150px; min-height:42px; padding:0 34px 0 13px; }
+.owner-actions .button { font-size:13px; min-height:42px; gap:9px; padding:10px 15px; }
+.owner-actions .button svg { width:17px; height:17px; }
+.owner-metrics { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border:1px solid #e0e7e9; background:#fff; border-radius:12px; margin-bottom:24px; overflow:hidden; }
+.owner-metric { position:relative; padding:22px 24px; display:flex; gap:15px; align-items:flex-start; border-right:1px solid #e9eef0; transition:background .15s; }
+.owner-metric:last-child { border-right:0; }.owner-metric:hover { background:#f9fcfb; }
+.owner-metric-icon { width:37px; height:37px; display:grid; place-items:center; background:#eef6f3; border-radius:10px; color:#4e8c7a; margin-top:3px; }
+.owner-metric:nth-child(3) .owner-metric-icon { color:#bc8b56; background:#fcf5ec; }.owner-metric:nth-child(4) .owner-metric-icon { color:#7f93a4; background:#f0f4f8; }
+.owner-metric-label { font-size:13px; font-weight:600; color:#637a84; }
+.owner-metric-value { font:750 31px Manrope,sans-serif; letter-spacing:-1px; line-height:1.35; color:#2b4855; margin:5px 0; }
+.owner-metric small { display:block; font-size:12px; color:#8c9da3; line-height:1.5; }
+.metric-arrow { position:absolute; top:18px; right:17px; font-size:14px; color:#adbbc1; }
+.owner-workspace { display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:22px; align-items:stretch; }
+.owner-card-head { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 24px; }
+#overview .owner-card-head h2 { font-size:17px; color:#2e4a56; letter-spacing:-.35px; }
+.owner-card-head p { margin:6px 0 0; color:#84989f; font-size:13px; }
+.owner-link { color:#458b7a; font-size:13px; font-weight:600; white-space:nowrap; }.owner-link:hover { text-decoration:underline; }
+#overview .sample-tag { margin-left:8px; color:#8ba2a1; background:#f0f5f5; font-size:11px; vertical-align:middle; font-weight:600; letter-spacing:.8px; }
+#overview .map { height:330px; border-block:1px solid #e6ece6; background-color:#f1f4ef; }
+#overview .map-label { font-size:12px; letter-spacing:1px; color:#95a597; }
+#overview .marker { width:31px; height:31px; border-width:3px; box-shadow:0 3px 7px #38614625; }
+#overview .marker [data-icon] svg { width:16px; height:16px; }
+#overview .marker-offline { background:#8b9fa5; }
+#overview .map-legend { font-size:12px; left:16px; bottom:14px; padding:11px 13px; gap:16px; }
+.owner-map-foot { display:flex; align-items:center; gap:9px; padding:15px 22px; color:#91a3aa; }
+.owner-map-foot svg { width:15px; height:15px; }.owner-map-foot p { margin:0; font-size:12px; }.owner-map-foot>span:last-child { margin-left:auto; font-size:12px; color:#708991; white-space:nowrap; }
+.owner-queue { display:flex; flex-direction:column; }
+.owner-queue .owner-card-head { align-items:center; border-bottom:1px solid #edf0f2; padding:23px; }
+.owner-queue .owner-eyebrow { color:#b19672; font-size:11px; margin-bottom:7px; }
+.queue-count { display:grid; place-items:center; min-width:32px; height:32px; border-radius:8px; background:#fcf3e8; color:#ba8a53; font-size:14px; font-weight:650; }
+.queue-item { display:flex; text-align:left; width:100%; align-items:flex-start; gap:12px; padding:21px 22px; background:white; border:0; border-bottom:1px solid #eef1f2; cursor:pointer; font:inherit; }
+.queue-item:hover { background:#fbfcfa; }.queue-event-icon { width:31px; height:33px; border-radius:8px; background:#fbf4eb; color:#c39761; }.queue-event-icon svg { width:17px; height:17px; }
+.queue-event-text { min-width:0; }.queue-event-text strong { display:block; font-size:13px; line-height:1.6; font-weight:650; color:#415e69; }.queue-event-text>span { display:block; color:#8e9fa7; font-size:12px; margin-top:4px; }.queue-event-text small { display:block; color:#9eabaf; font-size:12px; margin-top:7px; }.queue-arrow { margin-left:auto; color:#9faeb3; padding-top:7px; }
+.queue-footer { display:flex; justify-content:space-between; color:#4b8c7a; font-size:12px; font-weight:650; padding:17px 23px; }.queue-footer:hover { background:#f8fbfa; }
+.owner-connection { margin-top:auto; display:flex; align-items:flex-start; gap:10px; background:#f7f9fa; border-top:1px solid #e9eef0; padding:17px 21px; }
+.connection-indicator { width:6px; height:6px; background:#a5b5bd; border-radius:50%; flex:none; margin-top:6px; }.owner-connection strong { font-size:12px; color:#7b909d; font-weight:600; }.owner-connection p { font-size:12px; color:#9aabb2; line-height:1.6; margin:5px 0 0; }.owner-connection a { color:#8fa4ac; margin-left:auto; }
+.queue-empty { text-align:center; padding:30px 20px; }.queue-empty>span { color:#7db29a; display:flex; margin-bottom:15px; }.queue-empty strong { display:block; font-size:13px; color:#6a877a; }.queue-empty p { font-size:12px; line-height:1.7; color:#99aba3; }
+.owner-fleet { margin-top:22px; }#overview .owner-fleet th { font-size:12px; padding:13px 24px; text-transform:none; letter-spacing:.15px; background:#f8fafb; color:#81959e; }#overview .owner-fleet td { font-size:13px; padding:16px 24px; color:#718993; }
+.fleet-identity { display:flex; align-items:center; gap:12px; }.fleet-identity>span { width:32px; height:32px; display:grid; place-items:center; color:#8aa5a0; border:1px solid #e5eeea; border-radius:8px; background:#f8fbf9; }.fleet-identity svg { width:17px; height:17px; }.fleet-identity strong { font-size:13px; color:#3f5d68; }.fleet-identity small { display:block; font-size:12px; color:#99aab1; margin-top:2px; }
+#overview .badge { padding:5px 9px; font-size:12px; font-weight:600; }
+@media(max-width:1250px) { .owner-workspace { grid-template-columns:minmax(0,1fr) 300px; }.owner-metric { padding:20px 16px; gap:10px; }.owner-metric-icon { width:30px; height:32px; }.owner-metric small { font-size:12px; }.metric-arrow { display:none; } }
+@media(max-width:1050px) { .owner-workspace { grid-template-columns:1fr; }.owner-heading { align-items:flex-start; flex-direction:column; gap:20px; }.owner-metrics { grid-template-columns:repeat(2,minmax(0,1fr)); }.owner-metric:nth-child(2) { border-right:0; }.owner-metric:nth-child(-n+2) { border-bottom:1px solid #e9eef0; }.owner-queue { display:block; }.owner-queue .owner-card-head { padding:20px 24px; } }
+@media(max-width:600px) { .owner-heading h1 { font-size:26px; }.owner-heading p { font-size:13px; }.owner-actions { width:100%; flex-wrap:wrap; }.owner-actions select { min-width:130px; flex:1; }.owner-actions .button { flex:1; white-space:nowrap; }.owner-metric { padding:16px 14px; }.owner-metric-value { font-size:27px; }.owner-metric-label { font-size:12px; }.owner-metric-icon { display:none; }.owner-card-head { padding:20px 17px; align-items:flex-start; }#overview .owner-card-head h2 { font-size:16px; }#overview .sample-tag { display:block; width:fit-content; margin:6px 0 0; }.owner-card-head p { font-size:12px; }.owner-link { font-size:12px; }#overview .map { height:260px; }.owner-map-foot { padding:13px 16px; }.owner-map-foot>span:last-child { display:none; }.owner-map-foot p { font-size:12px; } }
+.real-map-wrapper { position:relative; }
+#overview .map { z-index:0; }
+.real-map-legend { position:absolute; z-index:400; left:12px; bottom:12px; display:flex; gap:14px; align-items:center; padding:9px 12px; border:1px solid #dce6e5; border-radius:7px; background:#fffffff0; color:#4c6570; font-size:12px; box-shadow:0 2px 8px #1f34351a; pointer-events:none; }
+.real-map-legend span { display:flex; align-items:center; gap:6px; }.real-map-legend i { width:9px; height:9px; border-radius:50%; display:inline-block; }.real-map-legend .legend-truck { background:#15866e; }.real-map-legend .legend-event { background:#db9146; }
+.map-unavailable { position:absolute; z-index:500; inset:0; display:grid; place-items:center; text-align:center; padding:25px; background:#f1f5f3ef; color:#58727b; font-size:13px; pointer-events:none; }.map-unavailable[hidden] { display:none; }
+.map-details { background:none; border:0; padding:6px 0 0; color:#087f72; font:600 13px 'DM Sans',sans-serif; cursor:pointer; }.leaflet-popup-content { line-height:1.7; color:#334e59; }.leaflet-popup-content small { color:#738993; }
+#overview .map { background-image:none; }
+.assignment-card { margin: 0 0 22px; }
+.assignment-form { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; padding:0 24px 24px; }
+.assignment-form label { display:flex; flex-direction:column; gap:7px; font-size:13px; font-weight:600; color:#536b74; }
+.assignment-form label small { font-weight:400; }
+.assignment-form input,.assignment-form select { width:100%; min-height:42px; border:1px solid #dce5e8; border-radius:8px; background:white; padding:9px 11px; font:inherit; color:#243e4a; }
+.assignment-location,.assignment-actions { display:flex; flex-wrap:wrap; align-items:center; gap:9px; }
+.assignment-location small,.assignment-actions span { color:#6b838d; font-size:12px; line-height:1.5; }
+.assignment-actions { grid-column:1/-1; }
+.real-map-legend .legend-destination { background:#3478c5; }
+@media(max-width:800px) { .assignment-form { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:520px) { .assignment-form { grid-template-columns:1fr; padding:0 17px 20px; } }
+.place-search { padding:0 24px 14px; }
+.place-search-form { display:flex; gap:8px; }
+.place-search-form input { flex:1; min-width:0; min-height:42px; border:1px solid #dce5e8; border-radius:8px; padding:9px 12px; font:inherit; color:#243e4a; }
+.place-search-note,.place-search-message { margin:7px 0 0; font-size:12px; color:#6b838d; line-height:1.5; }
+.place-search-message:empty { display:none; }
+.place-search-results { display:grid; gap:7px; margin-top:8px; }
+.place-search-results:empty { display:none; }
+.place-search-result { display:flex; align-items:center; gap:10px; justify-content:space-between; padding:10px; border:1px solid #e0e9e9; border-radius:8px; background:#f9fbfa; }
+.place-search-result strong { color:#36535d; font-size:13px; line-height:1.4; overflow-wrap:anywhere; }
+.place-search-result-actions { display:flex; flex-wrap:wrap; gap:5px; flex-shrink:0; }
+.place-search-result-actions button { font-size:12px; padding:7px 9px; }
+@media(max-width:600px) { .place-search { padding:0 17px 14px; }.place-search-result { align-items:flex-start; flex-direction:column; } }
+
+/* Trip planning keeps the fields aligned and gives the map controls their own row. */
+.assignment-card { overflow:visible; }
+.assignment-heading { padding-bottom:18px; }
+.assignment-heading-note { color:#7b9298; background:#f2f7f5; padding:7px 10px; border-radius:7px; font-size:12px; font-weight:600; white-space:nowrap; }
+.assignment-form { gap:18px 16px; }
+.assignment-form label { min-width:0; gap:8px; }
+.assignment-form label > span { min-height:16px; }
+.assignment-form label small { color:#92a2a8; font-size:12px; }
+.assignment-form input,.assignment-form select { font-size:13px; font-weight:400; }
+.assignment-location { grid-column:1 / -1; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:14px; padding:13px 15px; border:1px solid #e4eeeb; border-radius:9px; background:#f8fbfa; }
+.assignment-location-copy { display:grid; gap:4px; min-width:0; }
+.assignment-location-copy strong { color:#49636b; font-size:13px; }
+.assignment-location-copy strong span { color:#93a5aa; font-size:12px; font-weight:400; margin-left:5px; }
+.assignment-location-copy small { overflow-wrap:anywhere; }
+.assignment-location-buttons { display:flex; align-items:center; gap:13px; }
+.assignment-location-buttons .button { min-height:35px; padding:8px 12px; font-size:12px; }
+.assignment-clear { border:0; background:transparent; padding:6px 0; font:600 12px 'DM Sans',sans-serif; color:#738b91; cursor:pointer; }
+.assignment-clear:hover { color:#1c7465; text-decoration:underline; }
+.assignment-actions { padding-top:1px; }
+.assignment-actions .button { min-height:38px; }
+.place-search { padding-bottom:18px; }
+.place-search-form input { background:#f9fbfb; }
+.place-search-note { color:#879aa0; }
+@media(max-width:600px) { .assignment-heading-note { display:none; }.assignment-location { align-items:flex-start; }.assignment-location-buttons { flex-wrap:wrap; } }
+.assignment-destination-field { position:relative; min-width:0; display:flex; flex-direction:column; gap:8px; }
+.assignment-destination-field label { min-height:16px; }
+.assignment-destination-field input { width:100%; min-height:42px; border:1px solid #dce5e8; border-radius:8px; background:white; padding:9px 11px; font:400 13px 'DM Sans',sans-serif; color:#243e4a; }
+.destination-suggestions { position:absolute; z-index:800; top:calc(100% + 4px); left:0; right:0; max-height:240px; overflow:auto; padding:5px; border:1px solid #dce8e4; border-radius:9px; background:white; box-shadow:0 12px 28px #24434226; }
+.destination-suggestions[hidden] { display:none; }
+.destination-suggestions button { display:block; width:100%; border:0; border-radius:6px; padding:10px; background:white; color:#385660; text-align:left; font:500 13px/1.45 'DM Sans',sans-serif; cursor:pointer; }
+.destination-suggestions button:hover,.destination-suggestions button:focus-visible { background:#edf7f3; outline:2px solid #a6d3c7; outline-offset:-2px; }
+.destination-suggestion-message { color:#748e95; font-size:12px; line-height:1.4; }
+.destination-suggestion-message:empty { display:none; }
+.map-heading-actions { display:flex; align-items:center; gap:14px; }
+.map-heading-actions .button { min-height:35px; padding:7px 11px; font-size:12px; white-space:nowrap; }
+.map-fullscreen-message { margin:0; padding:0 24px; font-size:13px; color:#9b5f43; }
+.map-fullscreen-message:not(:empty) { padding-bottom:12px; }
+.owner-map-card:fullscreen { display:flex; flex-direction:column; width:100%; height:100%; max-width:none; max-height:none; overflow:auto; border:0; border-radius:0; background:#fff; }
+.owner-map-card:fullscreen .real-map-wrapper { flex:1 1 auto; min-height:260px; }
+#overview .owner-map-card:fullscreen .map { height:100%; min-height:260px; }
+.owner-map-card:fullscreen .owner-card-head,.owner-map-card:fullscreen .place-search,.owner-map-card:fullscreen .owner-map-foot { flex:none; }
+@media(max-width:600px) { .map-heading-actions { gap:8px; }.map-heading-actions .owner-link { display:none; }.map-heading-actions .button { font-size:12px; padding:7px 8px; } }
+.map-truck-filter { display:flex; align-items:center; gap:10px; padding:0 24px 16px; }
+.map-truck-filter label { color:#49646c; font-size:13px; font-weight:700; white-space:nowrap; }
+.map-truck-filter select { min-height:38px; min-width:180px; max-width:260px; padding:7px 32px 7px 11px; border:1px solid #dce5e8; border-radius:8px; background:#fff; color:#36545e; font:500 13px 'DM Sans',sans-serif; }
+.map-truck-filter .map-truck-hint { color:#879aa0; font-size:12px; line-height:1.4; }
+.map-truck-filter .button { min-height:38px; gap:7px; padding:8px 12px; font-size:12px; white-space:nowrap; }
+.map-truck-filter .button svg { width:15px; height:15px; }
+.owner-map-card:fullscreen .map-truck-filter { flex:none; }
+@media(max-width:600px) { .map-truck-filter { padding:0 17px 14px; flex-wrap:wrap; }.map-truck-filter select { flex:1; min-width:0; max-width:none; }.map-truck-filter .map-truck-hint { width:100%; } }
+
+/* Compact overview summary. */
+.owner-heading { margin:20px 0 16px; }
+.owner-heading h1 { font-size:25px; }
+.owner-heading p { margin-top:5px; font-size:13px; }
+.owner-metrics { margin-bottom:16px; border-radius:10px; }
+.owner-metric { align-items:center; gap:10px; padding:13px 16px; }
+.owner-metric-icon { flex:none; width:30px; height:30px; margin-top:0; border-radius:8px; }
+.owner-metric-label { font-size:12px; }
+.owner-metric-value { margin:2px 0; font-size:22px; line-height:1.2; }
+.owner-metric small { font-size:12px; line-height:1.35; }
+.metric-arrow { top:12px; right:12px; font-size:13px; }
+@media(max-width:600px) { .owner-heading h1 { font-size:23px; }.owner-metric { padding:12px 13px; }.owner-metric-value { font-size:21px; } }
+
+/* Keep monitoring visible while making trip and vehicle details available on demand. */
+.overview-panel { margin:0; }
+.overview-panel-summary { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 16px; cursor:pointer; list-style:none; }
+.overview-panel-summary::-webkit-details-marker { display:none; }
+.overview-panel-summary strong { display:block; color:#304c56; font-size:13px; }
+.overview-panel-summary small { display:block; color:#84989f; margin-top:3px; font-size:12px; }
+.panel-toggle { flex:none; color:#5a8c7b; font-size:20px; line-height:1; }
+.overview-panel[open] > .overview-panel-summary .panel-toggle { transform:rotate(45deg); }
+.overview-panel[open] > .overview-panel-summary { border-bottom:1px solid #edf1f1; margin-bottom:16px; }
+#assignment-panel { margin-bottom:12px; }
+.overview-secondary-panels { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; gap:12px; margin-top:12px; }
+.overview-secondary-panels .owner-fleet { margin:0; }
+.overview-secondary-panels .overview-panel[open] { grid-column:1/-1; }
+.owner-workspace { gap:12px; }
+#overview .owner-map-card:not(:fullscreen) .map { height:clamp(190px, calc(100vh - 500px), 330px); }
+.owner-map-card:not(:fullscreen) .owner-card-head { padding:14px 18px; }
+.owner-map-card:not(:fullscreen) .map-truck-filter { padding:0 18px 10px; }
+.owner-map-card:not(:fullscreen) .place-search { padding:0 18px 10px; }
+.owner-map-card:not(:fullscreen) .owner-map-foot { padding:9px 18px; }
+.owner-queue .owner-card-head { padding:14px 18px; }
+.queue-item { padding:12px 18px; }
+.queue-footer { padding:10px 18px; }
+.owner-connection { padding:11px 18px; }
+@media(max-width:1050px) { .owner-workspace { grid-template-columns:minmax(0,1fr) 260px; }.owner-queue .owner-card-head { padding:14px 18px; } }
+@media(max-width:760px) { .owner-workspace,.overview-secondary-panels { grid-template-columns:1fr; }.overview-secondary-panels .overview-panel[open] { grid-column:auto; } #overview .owner-map-card:not(:fullscreen) .map { height:260px; } }
+
+/* Give the compact dashboard and map a little more breathing room. */
+.owner-heading h1 { font-size:27px; }
+.owner-metric { padding:15px 17px; }
+.owner-metric-value { font-size:24px; }
+.overview-panel-summary { padding:14px 17px; }
+.overview-panel-summary strong { font-size:14px; }
+#overview .owner-map-card:not(:fullscreen) .map { height:clamp(240px, calc(100vh - 450px), 380px); }
+@media(max-width:760px) { #overview .owner-map-card:not(:fullscreen) .map { height:300px; } }
+@media(max-width:600px) { .owner-heading h1 { font-size:24px; }.owner-metric { padding:13px 14px; }.owner-metric-value { font-size:22px; } }
+.map-provider-settings { margin:0 18px 12px; color:#607a83; font-size:12px; }
+.map-provider-settings summary { cursor:pointer; font-weight:700; color:#397b6d; }
+.map-provider-settings form { display:grid; gap:8px; margin-top:10px; }
+.map-provider-settings form > div { display:flex; gap:8px; flex-wrap:wrap; }
+.map-provider-settings input[type=password] { flex:1; min-width:180px; padding:8px; border:1px solid #dce5e8; border-radius:7px; font:inherit; }
+.map-provider-settings p { margin:4px 0; line-height:1.5; }
+.traffic-switch { display:flex; gap:7px; align-items:center; margin-top:10px; }
+#overview .map[hidden], #overview .map-unavailable[hidden] { display:none !important; }
+.owner-map-card:fullscreen .map-provider-settings { flex:none; }

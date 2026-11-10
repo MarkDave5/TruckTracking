@@ -1,0 +1,299 @@
+/* Refinements and trip history */
+:root {
+  --ink:#183029;
+  --green:#175c46
+}
+
+.main {
+  background:linear-gradient(180deg,#f9fbf8 0,#f3f6f1 430px)
+}
+
+.topbar {
+  background:#fff
+}
+
+.content {
+  max-width:1560px
+}
+
+.page-heading h1 {
+  font-size:31px;
+  letter-spacing:-1.3px
+}
+
+.page-heading p {
+  font-size:13px
+}
+
+.card,.metric {
+  border-color:#e4ebe3;
+  box-shadow:0 4px 18px rgba(38,65,45,.035)
+}
+
+.metric {
+  position:relative;
+  overflow:hidden
+}
+
+.metric:after {
+  content:'';
+  position:absolute;
+  right:-20px;
+  bottom:-44px;
+  width:90px;
+  height:90px;
+  border:1px solid #eaf1e8;
+  border-radius:50%
+}
+
+.metric-value {
+  font-size:29px
+}
+
+.metric-icon {
+  border:1px solid #e5f0e5
+}
+
+.map {
+  height:300px
+}
+
+.table-card {
+  margin-top:18px
+}
+
+.nav-link {
+  transition:background .18s,color .18s
+}
+
+.nav-link:not(.active):hover {
+  background:#27483d;
+  color:#fff
+}
+
+.button:hover {
+  filter:brightness(.97)
+}
+
+.detail-button:hover,.text-link:hover {
+  text-decoration:underline
+}
+
+.page-chip {
+  font-size:12px;
+  font-weight:700;
+  color:#668675;
+  background:#eaf3e9;
+  padding:10px 13px;
+  border-radius:7px
+}
+
+.trip-intro {
+  border-radius:11px;
+  background:#183f32;
+  color:#ecf7eb;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:25px 28px;
+  position:relative;
+  overflow:hidden
+}
+
+.trip-intro:after {
+  content:'';
+  position:absolute;
+  right:7%;
+  top:-110px;
+  width:240px;
+  height:240px;
+  border:1px solid #ffffff15;
+  border-radius:50%;
+  box-shadow:0 0 0 35px #ffffff07,0 0 0 70px #ffffff05
+}
+
+.trip-intro>div {
+  display:flex;
+  align-items:center;
+  gap:16px;
+  z-index:1
+}
+
+.trip-intro-icon {
+  display:grid;
+  place-items:center;
+  width:46px;
+  height:46px;
+  border-radius:12px;
+  background:#d5edd3;
+  color:#235a3b;
+  font-size:24px
+}
+
+.trip-intro strong {
+  font:700 16px Manrope,sans-serif
+}
+
+.trip-intro p {
+  font-size:12px;
+  color:#b4cdbb;
+  margin:7px 0 0
+}
+
+.trip-intro>span {
+  color:#83a994;
+  font-size:11px;
+  letter-spacing:1px;
+  font-weight:700;
+  z-index:1
+}
+
+.trip-intro b {
+  color:#688f79;
+  margin:0 6px
+}
+
+.trip-stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:16px
+}
+
+.trip-stats>div {
+  background:white;
+  border:1px solid #e4ebe3;
+  border-radius:10px;
+  padding:19px 20px;
+  position:relative
+}
+
+.trip-stats p {
+  color:#94a49a;
+  letter-spacing:1px;
+  font-size:11px;
+  font-weight:700;
+  margin:0 0 13px
+}
+
+.trip-stats strong {
+  display:block;
+  font:800 25px Manrope,sans-serif
+}
+
+.trip-stats em {
+  font-style:normal;
+  font-size:13px;
+  color:#8b9a90
+}
+
+.trip-stats small {
+  display:block;
+  color:#a3afa5;
+  font-size:12px;
+  margin-top:7px
+}
+
+.stat-glyph {
+  float:right;
+  background:#edf6ed;
+  color:#619274;
+  border-radius:8px;
+  padding:8px 10px;
+  font-size:15px
+}
+
+.trip-footnote {
+  display:flex;
+  gap:12px;
+  color:#688775;
+  margin:20px 0;
+  padding:16px;
+  background:#eaf3e9;
+  border-radius:9px;
+  font-size:12px;
+  line-height:1.7
+}
+
+.trip-footnote>span {
+  font-size:17px
+}
+
+.trip-footnote p {
+  margin:0
+}
+
+.route-detail {
+  display:flex;
+  gap:15px;
+  background:#f4f8f3;
+  padding:18px;
+  margin-top:20px;
+  border-radius:8px;
+  color:#5b9a70
+}
+
+.route-detail>div {
+  flex:1
+}
+
+.route-detail strong,.route-detail small {
+  display:block;
+  color:#385747
+}
+
+.route-detail small {
+  color:#9aa99e;
+  margin-top:4px;
+  font-size:12px
+}
+
+.route-detail hr {
+  border:0;
+  border-top:1px dashed #d6e5d7;
+  margin:12px 0
+}
+
+.load-error {
+  background:#fff0e8;
+  padding:15px;
+  border-radius:8px;
+  color:#9c5032
+}
+
+@media(max-width:700px) {
+  .page-heading h1 {
+  font-size:25px
+}
+
+.trip-intro>span {
+  display:none
+}
+
+.trip-intro {
+  padding:19px
+}
+
+.trip-stats {
+  grid-template-columns:1fr;
+  gap:8px
+}
+
+.trip-stats>div {
+  padding:14px 16px
+}
+
+.trip-stats p {
+  margin-bottom:6px
+}
+
+.trip-stats strong {
+  font-size:21px
+}
+
+.map {
+  height:240px
+}
+
+
+}

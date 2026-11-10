@@ -1,0 +1,45 @@
+<section id="overview" class="page active-page">
+  <div class="owner-heading">
+    <div><span class="owner-eyebrow">OPERATIONS / OVERVIEW</span><h1>Driver monitoring</h1><p>Review trips and road events with the available evidence.</p></div>
+  </div>
+  <div class="owner-metrics" id="metrics" aria-label="Fleet summary"></div>
+  <details class="card assignment-card overview-panel" id="assignment-panel">
+    <summary class="overview-panel-summary"><span><strong>Assign a destination</strong><small>Plan or update a truck’s trip</small></span><span class="panel-toggle" aria-hidden="true">＋</span></summary>
+    <form id="assignment-form" class="assignment-form">
+      <label><span>Truck</span><select id="assignment-truck" required><option value="">Select a truck</option></select></label>
+      <label><span>Driver</span><select id="assignment-driver" required><option value="">Select a driver</option></select><small><a href="#drivers">Manage drivers</a></small></label>
+      <div class="assignment-destination-field"><label for="assignment-destination"><span>Destination</span></label><input id="assignment-destination" maxlength="160" required autocomplete="off" aria-controls="destination-suggestions" aria-describedby="destination-suggestion-message" placeholder="Search for a destination"><div id="destination-suggestions" class="destination-suggestions" aria-label="Destination suggestions" hidden></div><small id="destination-suggestion-message" class="destination-suggestion-message" role="status" aria-live="polite"></small></div>
+      <label><span>Planned departure <small>· Local time</small></span><input id="assignment-departure" type="datetime-local" required></label>
+      <label><span>Trip status</span><select id="assignment-status"><option>Planned</option><option>In progress</option><option>Arrived</option></select></label>
+      <div class="assignment-location"><div class="assignment-location-copy"><strong>Map location <span>Optional</span></strong><small id="assignment-location">No map location selected.</small></div><div class="assignment-location-buttons"><button type="button" class="button button-outline" id="pick-destination">Choose on map</button><button type="button" class="assignment-clear" id="clear-destination">Clear</button></div></div>
+      <div class="assignment-actions"><button type="submit" id="save-assignment" class="button button-primary">Save assignment</button><span id="assignment-message" role="status" aria-live="polite"></span></div>
+    </form>
+  </details>
+  <div class="owner-workspace">
+    <article class="card owner-map-card" id="fleet-map-card">
+      <div class="owner-card-head"><div><h2>Fleet map</h2><p>Search for a place or select a truck to view its available location.</p></div><div class="map-heading-actions"><button type="button" id="map-fullscreen" class="button button-outline" aria-pressed="false" aria-label="Expand map to full screen">⛶ <span>Full screen</span></button><a href="#vehicles" class="owner-link">Fleet details ↗</a></div></div>
+      <div class="map-truck-filter"><label for="map-vehicle">View truck</label><select id="map-vehicle"><option value="all">All trucks</option></select><a id="map-camera-link" class="button button-primary" href="#camera"><span data-icon="camera"></span>Camera monitor</a><span class="map-truck-hint">Select a truck to see its available location or planned destination.</span></div>
+      <details class="map-provider-settings"><summary>Map & traffic settings</summary><form id="google-map-form"><label for="google-map-key">Google Maps browser API key</label><div><input id="google-map-key" type="password" autocomplete="off" placeholder="Paste your API key here"><button type="submit" class="button button-outline" id="google-map-connect">Use Google Maps</button><button type="button" class="button button-outline" id="map-use-osm">Use OpenStreetMap</button></div><p>The key is used in this browser session and is visible to the browser. Restrict it to your website and Maps JavaScript API in Google Cloud. Google requires billing; usage beyond free allowances may cost money.</p></form><label class="traffic-switch"><input type="checkbox" id="google-traffic" disabled> Show Google traffic</label><p id="google-map-message" role="status" aria-live="polite">OpenStreetMap is active. Traffic requires Google Maps.</p></details>
+      <div class="place-search">
+        <form id="place-search-form" class="place-search-form"><label class="sr-only" for="place-search-input">Search for a place</label><input id="place-search-input" type="search" maxlength="160" required placeholder="Search for a city, address, or place"><button id="place-search-button" class="button button-primary" type="submit">Search</button></form>
+        <p class="place-search-note">Type 3 or more characters for suggestions · Powered by Photon and OpenStreetMap</p>
+        <p id="place-search-message" class="place-search-message" role="status" aria-live="polite"></p><div id="place-search-results" class="place-search-results"></div>
+      </div>
+      <div class="real-map-wrapper"><div class="map" id="map" aria-label="OpenStreetMap showing available locations and planned destinations"></div><div class="map" id="google-map" aria-label="Google map showing available locations and planned destinations" hidden></div><div id="map-unavailable" class="map-unavailable" hidden>Map unavailable. Check your internet connection and reload the page.</div><div class="real-map-legend"><span><i class="legend-truck"></i>Truck</span><span><i class="legend-destination"></i>Planned destination</span></div></div>
+      <div class="owner-map-foot"><span data-icon="info"></span><p id="map-location-message" aria-live="polite">Live truck GPS is not connected.</p><span id="map-event-count"></span></div><p id="map-fullscreen-message" class="map-fullscreen-message" role="status" aria-live="polite"></p>
+    </article>
+    <article class="card owner-queue">
+      <div class="owner-card-head"><div><span class="owner-eyebrow">NEEDS YOUR ATTENTION</span><h2>Review queue</h2></div><span class="queue-count" id="queue-count">0</span></div>
+      <div id="overview-queue"></div>
+      <a class="queue-footer" href="#detections">All saved events <span>→</span></a>
+      <div class="owner-connection"><span class="connection-indicator"></span><div><strong>Truck devices not connected</strong><p>GPS, camera and sensor telemetry are unavailable.</p></div></div>
+    </article>
+  </div>
+  <div class="overview-secondary-panels">
+  <details class="card overview-panel"><summary class="overview-panel-summary"><span><strong>Current assignments</strong><small>Review and edit planned trips</small></span><span class="panel-toggle" aria-hidden="true">＋</span></summary><div id="assignment-list"></div></details>
+  <details class="card owner-fleet overview-panel">
+    <summary class="overview-panel-summary"><span><strong>Vehicle status</strong><small>Your registered trucks</small></span><span class="panel-toggle" aria-hidden="true">＋</span></summary>
+    <div id="overview-fleet-table"></div>
+  </details>
+  </div>
+</section>

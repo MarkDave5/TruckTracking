@@ -1,0 +1,17 @@
+<section id="vehicles" class="page">
+  <div class="page-heading vehicle-heading"><div><div class="eyebrow"><span></span> FLEET OPERATIONS</div><h1>Fleet tracking</h1><p>Register a truck and review its latest available location.</p></div><button type="button" class="button button-primary" id="add-truck">+ Add truck</button></div>
+  <div class="vehicle-summary" aria-label="Truck summary"><article class="card vehicle-summary-item"><span class="vehicle-summary-icon" data-icon="truck"></span><div><span>Registered trucks</span><strong id="vehicle-total">0</strong><small>In your account</small></div></article><article class="card vehicle-summary-item"><span class="vehicle-summary-icon vehicle-summary-icon-muted" data-icon="sync"></span><div><span>Connected trackers</span><strong id="vehicle-connected">0</strong><small>Device pairing is not available yet</small></div></article></div>
+  <article class="card vehicle-directory"><div class="vehicle-directory-head"><div><div class="section-kicker">FLEET DIRECTORY</div><h2>Your trucks</h2><p>Find a vehicle and check its latest available information.</p></div><div class="vehicle-directory-controls"><label class="sr-only" for="vehicle-search">Search trucks</label><input id="vehicle-search" type="search" placeholder="Search plate, model, or driver"><div class="vehicle-view-toggle" role="group" aria-label="Truck display"><button type="button" id="vehicle-view-cards" aria-pressed="true">Cards</button><button type="button" id="vehicle-view-table" aria-pressed="false">Table</button></div></div></div><div class="vehicle-directory-note"><span data-icon="info"></span><span>Tracker references do not connect devices. Live GPS and truck cameras are not connected yet.</span></div><div id="vehicle-table" aria-live="polite"></div></article>
+</section>
+<dialog id="truck-dialog">
+  <div class="dialog-top"><div><div class="section-kicker">FLEET REGISTRATION</div><h2>Add a truck</h2><p class="truck-dialog-intro">Enter the truck details. You can add a tracker reference now or leave it blank.</p></div><button type="button" class="icon-button" id="close-truck" aria-label="Close truck registration">✕</button></div>
+  <form id="truck-form" class="trip-fuel-form">
+    <label for="truck-plate">Plate number<input id="truck-plate" name="plate" type="text" maxlength="24" required autocomplete="off" placeholder="e.g. ABC 1234"></label>
+    <label for="truck-model">Make and model<input id="truck-model" name="model" type="text" maxlength="80" required autocomplete="off" placeholder="e.g. Isuzu N-Series"></label>
+    <label for="truck-efficiency">Typical fuel efficiency <span>km/L</span><input id="truck-efficiency" name="efficiency" type="number" min="0.1" max="100" step="0.01" inputmode="decimal" required placeholder="e.g. 6"></label>
+    <label for="truck-reference">Tracker ID or reference <span>optional</span><input id="truck-reference" name="reference" type="text" maxlength="64" autocomplete="off" placeholder="Device reference, if available"></label>
+    <p class="truck-form-note">This saves the reference only. It does not connect or verify a tracker, and this truck will have no live location yet. The efficiency is saved as a truck setting for future trips.</p>
+    <p id="truck-form-message" class="fuel-form-message" role="status" aria-live="polite"></p>
+    <div class="truck-form-actions"><button type="button" class="button button-outline" id="cancel-truck">Cancel</button><button id="save-truck" class="button button-primary" type="submit">Save truck</button></div>
+  </form>
+</dialog>

@@ -1,0 +1,12 @@
+<section id="road-conditions" class="page">
+  <div class="page-heading"><div><div class="eyebrow"><span></span> ROAD MONITORING</div><h1>Road conditions</h1><p>Review acceleration and rotation readings for each truck.</p></div></div>
+  <div class="scope-strip"><span data-icon="road"></span><p><strong>Truck sensors are not connected.</strong> Live readings are unavailable. The readings below are entered manually with saved events and are not automatically synchronized with video.</p></div>
+  <div class="sensor-guide">
+    <article class="card sensor-guide-card"><div class="section-kicker">ACCELEROMETER</div><h2>Acceleration</h2><p>Measures changes in motion. A vertical reading can help the owner understand the truck's movement around a road event.</p></article>
+    <article class="card sensor-guide-card"><div class="section-kicker">GYROSCOPE</div><h2>Rotation</h2><p>Measures rotational movement along three axes. Review readings alongside the video and other available context.</p></article>
+  </div>
+  <article class="card table-card sensor-readings-card">
+    <div class="card-head sensor-readings-head"><div><div class="section-kicker">SAVED READINGS</div><h2>Sensor readings by truck</h2><p>Manually entered values from saved events; timestamps are supplied by the user.</p></div><div class="sensor-readings-actions"><label>View truck<select id="road-condition-filter"><option value="all">All trucks</option></select></label><button type="button" id="road-condition-add" class="button button-outline">Add event</button></div></div>
+    <div id="road-condition-list" aria-live="polite"><div class="empty">Loading saved readings…</div></div>
+  </article>
+</section>
